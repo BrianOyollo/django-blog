@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block posts %}
+    <form class="login-Form p-2" method="post">
+    {% csrf_token %}
+        <fieldset class=" border bg-white  mb-2" style="border-radius: 4px;">
+            <legend class=" text-light bg-secondary text-center p-2" style="border-radius: 4px;">Login</legend>
+            <div class="p-2 bg-white" style="border-radius: 4px;">
+                {{ form|crispy }}
+            </div>
+            <button class="btn bg-secondary text-center text-info mb-2" style="margin-left: 43%;" type="submit">Login</button>
+        </fieldset>
+
+
+    </form>
+{% endblock posts %}
+
+{% block trial %}
+
+{% endblock %}

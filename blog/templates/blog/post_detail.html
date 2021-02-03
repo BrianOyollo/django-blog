@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block posts %}
+        <div class="post-item border ">
+            <h5 class="text-primary">{{ object.title|title }}</h5>
+            <a class=" text-primary" href="#">{{ object.author }}</a> | <small class="text-muted">category</small> | <small class="text-muted">date posted</small>
+            <p style="white-space: pre-wrap; word-break: break-word">{{ object.body }}</p>
+        <a href="{% url 'post-update' object.id %}">Update Post</a> | <a href="{% url 'post-delete' object.id %}">Delete Post</a>
+        </div>
+
+{% endblock posts %}
+{% block trial %}
+    {#  empty to avoid iterating over posts from the base.html  #}
+{% endblock trial %}

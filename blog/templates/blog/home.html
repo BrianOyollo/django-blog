@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block posts %}
+    {% for post in all_blog_posts %}
+        <div class="post-item border bg-white ">
+            <a href="{% url 'post-detail' post.id %}"><h5>{{ post.title|title }}</h5></a>
+            <a class=" text-muted" href="#">{{ post.author }}</a> | <small class="text-muted">category</small> | <small class="text-muted">date posted</small>
+            {% if post.body|length > 280 %}
+                <p style="white-space: pre-wrap; word-break: break-word">{{ post.body|truncatechars:280 }} <a href="{% url 'post-detail' post.id %}">Read more</a> </p>
+            {% else %}
+                <p style="word-break: break-word;  white-space: pre-wrap">{{ post.body }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock posts %}
